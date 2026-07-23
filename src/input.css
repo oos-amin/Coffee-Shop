@@ -33,7 +33,7 @@
 
   @font-face {
     font-family: "Morabba Medium";
-    src: url("../public/fonts/Morabba/Morabba-Medium.woff2") format("woff2");
+    src: url("../fonts/Morabba/Morabba-Medium.woff2") format("woff2");
     font-display: swap;
   }
 
@@ -44,23 +44,32 @@
   }
 
   body {
-    background: url("../images/headerBgDesktop.webp") no-repeat;
     font-feature-settings: "ss02" on;
   }
 }
 
 @theme {
+  /* Breakpoints */
+  --breakpoint-xs: 30rem;
+
+  /* Images */
+  --background-image-headerDesktop: url("../images/headerBgDesktop.webp");
+  --background-image-headerMobile: url("../images/headerBgMobile.webp");
+
+  /* Colors */
   --color-brown-100: #ece0d1;
   --color-brown-300: #dbc1ac;
   --color-brown-600: #967359;
   --color-brown-900: #634832;
-
   --color-dark: #27272a;
 
+  /* Shadows */
   --shadow-normal: 0px 1px 10px rgba(0, 0, 0, 0.05);
 
+  /* Radius */
   --radius-4xl: 2rem;
 
+  /* Fonts */
   --font-Dana: "Dana";
   --font-DanaMedium: "Dana Medium";
   --font-DanaDemiBold: "Dana DemiBold";
@@ -68,6 +77,7 @@
   --font-MorabbaMedium: "Morabba Medium";
   --font-MorabbaSemiBold: "Morabba SemiBold";
 
+  /* Letter Spacing */
   --tracking-tightest: -0.06em;
 }
 
@@ -104,6 +114,26 @@
     @apply left-0;
   }
 
+  .circle {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .circle--main {
+    @apply absolute right-0 left-0 bottom-0 translate-y-2/4 mx-auto;
+  }
+
+  .circle-top {
+    @apply w-50.75 h-50.75 border border-white/25 rounded-[50%];
+  }
+
+  .circle-mid {
+    @apply flex flex-col justify-center items-center w-36.25 h-36.25 border border-white/50 rounded-[50%];
+  }
+
+  .circle-bottom {
+    @apply w-23.75 h-23.75 border border-white/80 rounded-[50%];
+  }
+
   .overlay {
     @apply opacity-0 invisible fixed inset-0 w-full h-full bg-black/40 z-10 transition-all duration-300;
   }
@@ -132,4 +162,11 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+}
+
+@utility container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
